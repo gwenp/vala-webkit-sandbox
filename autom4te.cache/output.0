@@ -12079,6 +12079,8 @@ VALAWEBKITSANDBOX_CORE_PKGS="gobject-2.0 >= $GLIB_MIN_VERSION \
                  gdk-pixbuf-2.0 >= $GDK_PIXBUF_MIN_VERSION \
                  libbamf3 >= $BAMF_MIN_VERSION \
                  libwnck-3.0 \
+                 webkitgtk-3.0 \
+                 libsoup-2.4 \
                  x11"
 VALAWEBKITSANDBOX_CORE_OPTIONAL_PKGS=""
 
@@ -12089,6 +12091,8 @@ VALAWEBKITSANDBOX_CORE_VALA_PKGS="--pkg gio-unix-2.0 \
                       --pkg libbamf3 \
                       --pkg libwnck-3.0 \
                       --pkg posix \
+                      --pkg webkitgtk-3.0 \
+                      --pkg libsoup-2.4 \
                       --pkg x11"
 
 VALAFLAGS="--target-glib=2.32"

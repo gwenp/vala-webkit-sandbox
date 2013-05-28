@@ -103,8 +103,8 @@ libvalawebkitsandbox_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(builddir)/libvalawebkitsandbox-internal.la \
 	$(am__DEPENDENCIES_1)
 am__objects_3 = valawebkitsandbox-resources.lo $(am__objects_1)
-am__objects_4 = AbstractMain.lo Factory.lo DockController.lo Paths.lo \
-	Logger.lo DockWindow.lo CompositedWindow.lo $(am__objects_1)
+am__objects_4 = AbstractMain.lo Factory.lo MainController.lo Paths.lo \
+	Logger.lo MainWindow.lo CompositedWindow.lo $(am__objects_1)
 nodist_libvalawebkitsandbox_la_OBJECTS = $(am__objects_3) \
 	$(am__objects_4) $(am__objects_1)
 libvalawebkitsandbox_la_OBJECTS =  \
@@ -382,10 +382,10 @@ libvalawebkitsandbox_la_LIBADD = \
 libvalawebkitsandbox_la_VALASOURCES = \
 	Factories/AbstractMain.vala \
 	Factories/Factory.vala \
-	DockController.vala \
+	MainController.vala \
 	System/Paths.vala \
 	System/Logger.vala \
-	Widgets/DockWindow.vala \
+	Widgets/MainWindow.vala \
 	Widgets/CompositedWindow.vala \
 	$(NULL)
 
@@ -533,10 +533,10 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/AbstractMain.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CompositedWindow.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/DockController.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/DockWindow.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Factory.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Logger.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MainController.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MainWindow.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Paths.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/valawebkitsandbox-resources.Plo@am__quote@
 
@@ -589,12 +589,12 @@ Logger.lo: System/Logger.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o Logger.lo `test -f 'System/Logger.c' || echo '$(srcdir)/'`System/Logger.c
 
-DockWindow.lo: Widgets/DockWindow.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT DockWindow.lo -MD -MP -MF $(DEPDIR)/DockWindow.Tpo -c -o DockWindow.lo `test -f 'Widgets/DockWindow.c' || echo '$(srcdir)/'`Widgets/DockWindow.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/DockWindow.Tpo $(DEPDIR)/DockWindow.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='Widgets/DockWindow.c' object='DockWindow.lo' libtool=yes @AMDEPBACKSLASH@
+MainWindow.lo: Widgets/MainWindow.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT MainWindow.lo -MD -MP -MF $(DEPDIR)/MainWindow.Tpo -c -o MainWindow.lo `test -f 'Widgets/MainWindow.c' || echo '$(srcdir)/'`Widgets/MainWindow.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/MainWindow.Tpo $(DEPDIR)/MainWindow.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='Widgets/MainWindow.c' object='MainWindow.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o DockWindow.lo `test -f 'Widgets/DockWindow.c' || echo '$(srcdir)/'`Widgets/DockWindow.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o MainWindow.lo `test -f 'Widgets/MainWindow.c' || echo '$(srcdir)/'`Widgets/MainWindow.c
 
 CompositedWindow.lo: Widgets/CompositedWindow.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT CompositedWindow.lo -MD -MP -MF $(DEPDIR)/CompositedWindow.Tpo -c -o CompositedWindow.lo `test -f 'Widgets/CompositedWindow.c' || echo '$(srcdir)/'`Widgets/CompositedWindow.c

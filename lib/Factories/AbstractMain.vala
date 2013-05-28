@@ -38,11 +38,6 @@ namespace Valawebkitsandbox.Factories
 		 * Signal fired when the program is fully initialized, before creating and showing the dock.
 		 */
 		protected signal void initialized ();
-
-		/**
-		 * The name of the path containing the dock's preferences.
-		 */
-		public static string dock_path = "dock1";
 		
 		/**
 		 * Should be Build.PKGDATADIR
@@ -102,15 +97,15 @@ namespace Valawebkitsandbox.Factories
 			Posix.signal(Posix.SIGTERM, sig_handler);
 			
 			Logger.initialize ("valawebkitsandbox");
-			// Logger.DisplayLevel = LogLevel.INFO;
+			Logger.DisplayLevel = LogLevel.INFO;
 			// message ("%s version: %s", program_name, build_version);
-			// message ("Kernel version: %s", Posix.utsname ().release);
-			// message ("GLib version: %u.%u.%u", glib_major_version, glib_minor_version, glib_micro_version);
-			// message ("GTK+ version: %u.%u.%u", Gtk.get_major_version (), Gtk.get_minor_version () , Gtk.get_micro_version ());
-			// message ("Wnck version: %d.%d.%d", Wnck.Version.MAJOR_VERSION, Wnck.Version.MINOR_VERSION, Wnck.Version.MICRO_VERSION);
-			// message ("Cairo version: %s", Cairo.version_string ());
-			// message ("Pango version: %s", Pango.version_string ());
-			// Logger.DisplayLevel = LogLevel.WARN;
+			message ("Kernel version: %s", Posix.utsname ().release);
+			message ("GLib version: %u.%u.%u", glib_major_version, glib_minor_version, glib_micro_version);
+			message ("GTK+ version: %u.%u.%u", Gtk.get_major_version (), Gtk.get_minor_version () , Gtk.get_micro_version ());
+			message ("Wnck version: %d.%d.%d", Wnck.Version.MAJOR_VERSION, Wnck.Version.MINOR_VERSION, Wnck.Version.MICRO_VERSION);
+			message ("Cairo version: %s", Cairo.version_string ());
+			message ("Pango version: %s", Pango.version_string ());
+			Logger.DisplayLevel = LogLevel.WARN;
 		}
 	
 		protected virtual bool initialize_libraries (ref unowned string[] args)
@@ -144,7 +139,6 @@ namespace Valawebkitsandbox.Factories
 		protected virtual void initialize_services ()
 		{
 			Paths.initialize (exec_name, build_pkg_data_dir);
-			Paths.ensure_directory_exists (Paths.AppConfigFolder.get_child (dock_path));
 		}
 		static void sig_handler (int sig)
 		{
@@ -210,7 +204,7 @@ namespace Valawebkitsandbox.Factories
 		 */
 		protected virtual void create_controller ()
 		{
-			new DockController ();
+			new MainController ();
 		}
 
 	}

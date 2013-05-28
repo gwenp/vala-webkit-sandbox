@@ -19,36 +19,56 @@ using Cairo;
 using Gdk;
 using Gee;
 using Gtk;
+using WebKit;
 
 using Valawebkitsandbox.Factories;
 
 namespace Valawebkitsandbox.Widgets
 {
-	
+    WebView? view = null;
+    Gtk.ScrolledWindow? scrolled = null;
+	Gtk.Box? box = null;
+	Gtk.Button? buttonRefresh = null;
+
 	/**
 	 * The main window for all docks.
 	 */
-	public class DockWindow : Gtk.Window
+	public class MainWindow : Gtk.Window
 	{
 
 		/**
 		 * The controller for this dock.
 		 */
-		public DockController controller { private get; construct; }
+		public MainController controller { private get; construct; }
 		
 		/**
 		 * Creates a new dock window.
 		 */
-		public DockWindow (DockController controller)
+		public MainWindow (MainController controller)
 		{
 			GLib.Object (controller: controller, type: Gtk.WindowType.TOPLEVEL);
 		}
 		
 		construct
 		{
+			box = new Box(Gtk.Orientation.VERTICAL, 0);
+    		view = new WebView ();
+    		buttonRefresh = new Gtk.Button();
+    		buttonRefresh.set_label("Refresh");
+
+    		scrolled = new Gtk.ScrolledWindow (null, null);
+    		scrolled.add (view);
+
+    		box.pack_start(buttonRefresh,false,false);
+    		box.pack_start(scrolled);
+    		add(box);
+            view.load_uri ("http://www.google.fr");
+
+    		show_all();
+    		resize(500,500);
 		}
 		
-		~DockWindow ()
+		~MainWindow ()
 		{
 		}
 		

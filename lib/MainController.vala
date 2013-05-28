@@ -22,15 +22,15 @@ namespace Valawebkitsandbox
 	/**
 	 * A controller class for managing a single dock.
 	 */
-	public class DockController : GLib.Object
+	public class MainController : GLib.Object
 	{
 		// public PositionManager position_manager;
 		// public DockRenderer renderer;
-		public DockWindow window;
+		public MainWindow window;
 
-		public DockController ()
+		public MainController ()
 		{
-			window = new DockWindow (this);
+			window = new MainWindow (this);
 
 			window.show_all ();
 		}
