@@ -1,0 +1,11 @@
+Shelf. A simple notification and information center
+
+![Preview](https://raw.github.com/gwenp/shelf/master/screenshots/shelf.png)
+
+-- Compiling
+
+in a terminal, type :
+./autogen.sh && make
+
+-- Executing
+the executable path is : /src/shelf
